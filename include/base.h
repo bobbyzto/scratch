@@ -34,8 +34,29 @@ typedef char      byte;
 typedef ptrdiff_t size;
 typedef size_t   usize;
 
+// Strings
+#define s8(s) (s8){(u8*)s, lengthof(s)}
+
+// move to string.c
+typedef struct {
+    u8   *data;
+    size   len;
+} s8;
+
+/* String methods */
+static s8   s8span(u8 *, u8 *);
+static b32  s8equals(s8, s8);
+static size s8compare(s8, s8);
+static u64  s8hash(s8);
+static s8   s8trim(s8);
+static s8   s8clone(s8);
+
 // Macros
 #define countof(a) (size)(sizeof(a) / sizeof(*(a)))
+#define lengthof(s) (countof(s)-1)
+// #define new(a,t,n) (t*)alloc(a, sizeof(t), _Alignof(t),n)
+#define container_of(ptr, type, member) \
+    ((type *)(char *)(ptr) - offsetof(type, member))
 
 #ifdef __cplusplus
     extern "C" {
