@@ -18,7 +18,9 @@
 #ifndef BASE_H_INCLUDED
 #define BASE_H_INCLUDED
 
+#include <stdint.h>
 #include <stddef.h>
+#include <uchar.h>
 
 // Atomics
 typedef uint8_t     u8;
@@ -34,26 +36,9 @@ typedef char      byte;
 typedef ptrdiff_t size;
 typedef size_t   usize;
 
-// Strings
-#define s8(s) (s8){(u8*)s, lengthof(s)}
-
-// move to string.c
-typedef struct {
-    u8   *data;
-    size   len;
-} s8;
-
-/* String methods */
-static s8   s8span(u8 *, u8 *);
-static b32  s8equals(s8, s8);
-static size s8compare(s8, s8);
-static u64  s8hash(s8);
-static s8   s8trim(s8);
-static s8   s8clone(s8);
-
 // Macros
 #define countof(a) (size)(sizeof(a) / sizeof(*(a)))
-#define lengthof(s) (countof(s)-1)
+#define lengthof(s) countof(s)-1
 // #define new(a,t,n) (t*)alloc(a, sizeof(t), _Alignof(t),n)
 #define container_of(ptr, type, member) \
     ((type *)(char *)(ptr) - offsetof(type, member))
@@ -61,6 +46,29 @@ static s8   s8clone(s8);
 #ifdef __cplusplus
     extern "C" {
 #endif
+
+// Arena allocator
+typedef struct arena arena;
+void * memset(void *, int, usize);
+void * alloc(arena *, size, size, size);
+
+// Strings
+typedef struct s8 s8;
+#define S(s) (s8){(u8*)s, countof(s)-1}
+struct s8 {
+  u8    * data;
+  size     len;
+};
+
+/* String methods */
+extern s8   s8span(u8 *, u8 *);
+extern b32  s8equals(s8, s8);
+extern size s8compare(s8, s8);
+extern u64  s8hash(s8);
+extern s8   s8trim(s8);
+extern s8   s8copy(u8 *, u8 *);
+/*extern s8   s8clone(s8);*/
+
 
 // Code here
 

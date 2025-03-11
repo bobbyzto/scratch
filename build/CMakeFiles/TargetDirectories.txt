@@ -1,0 +1,9 @@
+/home/fellas/scratch/build/CMakeFiles/Main.dir
+/home/fellas/scratch/build/CMakeFiles/edit_cache.dir
+/home/fellas/scratch/build/CMakeFiles/rebuild_cache.dir
+/home/fellas/scratch/build/base/CMakeFiles/base.dir
+/home/fellas/scratch/build/base/CMakeFiles/edit_cache.dir
+/home/fellas/scratch/build/base/CMakeFiles/rebuild_cache.dir
+/home/fellas/scratch/build/test/CMakeFiles/test.dir
+/home/fellas/scratch/build/test/CMakeFiles/edit_cache.dir
+/home/fellas/scratch/build/test/CMakeFiles/rebuild_cache.dir
