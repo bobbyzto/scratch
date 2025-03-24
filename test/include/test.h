@@ -11,3 +11,4 @@
 #define TESTSUITE_RELAY(line) TEST_IMPL(line)
 #define TESTSUITE TESTSUITE_RELAY(__LINE__)
 
+#endif // !TEST_H_INCLUDED

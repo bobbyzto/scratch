@@ -92,9 +92,6 @@ Main_EXTERNAL_OBJECTS =
 
 Main: CMakeFiles/Main.dir/main.c.o
 Main: CMakeFiles/Main.dir/build.make
-Main: base/libbase.a
-Main: test/libtest.a
-Main: base/libbase.a
 Main: CMakeFiles/Main.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/fellas/scratch/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking C executable Main"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Main.dir/link.txt --verbose=$(VERBOSE)

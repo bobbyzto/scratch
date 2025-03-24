@@ -2,11 +2,13 @@ cmake_minimum_required(VERSION 3.2)
 
 project(Main C CXX)
 
-add_subdirectory(base)
-add_subdirectory(test)
-
-add_executable(Main 
+file(GLOB SOURCES
   main.c 
+  base/*.c  
+  test/*.c 
 )
-target_link_libraries(Main PRIVATE base test)
+
+add_executable(Main ${SOURCES})
+
+include_directories(base/include test/include)
 
