@@ -3,10 +3,6 @@
 #include "base.h"
 #include "test.h"
 
-/* C Version of Logger (belongs in logger.h) */
-#define LOG_MSG(fmt, ...) \
-  fprintf(stdout, fmt, ##__VA_ARGS__)
-
 /* Generic definitions */
 const i32 noHistory = -1;
 const i32 noParent = -1;
